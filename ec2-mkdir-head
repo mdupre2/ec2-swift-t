@@ -10,6 +10,6 @@ if [ "$#" -lt 1 ]; then
     exit
 fi
 
-ssh -i ${SWIFT_EC2_KEY}  $SWIFT_EC2_USER@$(sed -n "1,1p" head_node_public_ip.txt | cat) "source ~/.bash_profile; mkdir $1"
+ssh -i ${SWIFT_EC2_KEY}  $SWIFT_EC2_USER@$(sed -n "1,1p" head_node_public_ip.txt | cat) 'source ~/.profile; mkdir' $1
 
 

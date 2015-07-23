@@ -7,7 +7,7 @@ export SWIFT_EC2_KEY=
 # The user of the ec2 instances. Change if not using ubuntu.
 export SWIFT_EC2_USER=ubuntu
 
-# The full path of the turbine program on the ec2 instances unless the directory of the turbine program is added to $PATH variable in ~/.bash_profile
+# The full path of the turbine program on the ec2 instances unless the directory of the turbine program is added to $PATH variable in ~/.profile
 export SWIFT_EC2_TURBINE_PATH=
 
 # The AWS Access Key ID

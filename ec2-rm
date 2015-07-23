@@ -16,6 +16,6 @@ iparr=($(cat public_ip.txt | awk '{ print $1 }'))
 
 for i in "${iparr[@]}"
 do
-	ssh -i ${SWIFT_EC2_KEY}  $SWIFT_EC2_USER@${i} "source ~/.bash_profile; rm $1"
+	ssh -i ${SWIFT_EC2_KEY}  $SWIFT_EC2_USER@${i} 'source ~/.profile; rm' $1
 done
 
