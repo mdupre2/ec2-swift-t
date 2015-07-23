@@ -1,0 +1,15 @@
+#!/bin/bash
+# makes directory on head ec2 instance
+
+source ec2-config
+
+# if not enough arguments print usage
+if [ "$#" -lt 1 ]; then
+    echo "Usage:  $(basename $0) insance_new_directory"
+    echo "  example: $(basename $0) /new/directory/on/head/instance "
+    exit
+fi
+
+ssh -i ${SWIFT_EC2_KEY}  $SWIFT_EC2_USER@$(sed -n "1,1p" head_node_public_ip.txt | cat) "source ~/.bash_profile; mkdir $1"
+
+

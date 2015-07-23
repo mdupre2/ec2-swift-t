@@ -1,11 +1,11 @@
 #!/bin/bash
 # copies file to all instances
 
-source swift-t_ec2_config
+source ec2-config
 
 # if not enough arguments print usage
 if [ "$#" -lt 2 ]; then
-    echo "Usage:  $(basename $0) file locationOnInstance "
+    echo "Usage:  $(basename $0) local_sorce_file insance_target_file "
     echo "  example: $(basename $0) hello.txt /path/on/instance"
     exit
 fi

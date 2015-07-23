@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source swift-t_ec2_config
+source ec2-config
 
 # retreives the list of public ip addresses of all running ec2 instances and stores them in public_ip.txt
 $EC2_HOME/bin/ec2-describe-instances  --region $SWIFT_EC2_REGION --show-empty-fields --filter "instance-state-name=running" | grep NICASSOCIATION | awk '{ print $2 }' > public_ip.txt
