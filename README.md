@@ -46,9 +46,15 @@ A set of scripts to make running swift jobs on ec2 easier
 
 ##Setup
 1. Create ec2 instances. Note that micro instances do not have enough ram to run Swift/T. All insances must have Swift installed. Having all the instances look the same is helpful. 
+
 2. Fill in `ec2-config` file. Note that any environment variables exported in ~/.bashrc of the instance will not be exported. export all environment variables in ~/.profile. If turbine's binary location is added to $PATH in .bashrc, the full path of the turbine binary will need to be stored in  `SWIFT_EC2_TURBINE_PATH` in `ec2-config`
 3. If you don't have a AWS user with administative permissions [create a user](http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html). 
 4. Use the downloaded credentials to fill in `AWS_ACCESS_KEY` and `WS_SECRET_KEY` in `ec2-config`
+
+2. Fill in `ec2-config` file. Note that any environment variables exported in ~/.bashrc of the instance will not be exported. export all environment variables in ~/.bash_profile. If turbine's binary location is added to $PATH in .bashrc, the full path of the turbine binary will need to be stored in  `SWIFT_EC2_TURBINE_PATH` in `ec2-config`
+3. If you don't have a AWS user with administative permissions, [create a user](http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html). 
+4. Use the downloaded credentials to fill in `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` in `ec2-config`
+
 5. One of the instances must be designated the head node. The head node has a private key in its ~/.ssh folder and the rest have the matching public key(.pem) in it's  ~/.ssh folder. The keys can be made with ssh-keygen and pushed to the nodes with `ec2-push` and `ec2-push-head`.
 6. All instance must have a folder called `swift-run` in the home directory. This is where swift will be ran on each of the instances. You can use `ec2-mkdir` to create this directory. 
 
